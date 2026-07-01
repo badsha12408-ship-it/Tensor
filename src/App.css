@@ -1,0 +1,92 @@
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.panalDisplay{
+  width: 100%;
+  height: 100vh;
+  background: rgb(19, 19, 19);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.actionBtn{
+  padding: 16px 20px;
+  background: rgb(46, 62, 131);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: rgb(185, 185, 185);
+  display: flex;
+  font-size: larger;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.Status{
+  font-size: .9rem;
+  color: aliceblue;
+
+}
+.dN{
+  color: rgb(204, 204, 204);
+}
+.panalmainin{
+  max-width: 500px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgb(34, 34, 34);
+  padding: 35px;
+  border-radius: 5px;
+  text-align: left;
+}
+.indicat{
+  display: flex;
+  font-size: 2rem;
+}
+.readpanal{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.deviceNameC{
+  display: flex;
+  flex-direction: column;
+}
+.readD{
+  font-size: .8rem;
+  color: rgb(149, 149, 149);
+}
+.soundS{
+  font-size: 1.4rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 2px;
+  background:transparent;
+  border: none;
+  padding: 5px 5px;
+  transition: all .2s;
+}
+.soundS:hover{
+  background: rgb(54, 54, 54);
+}
+.D0101{
+  display: flex;
+  align-items:center;
+  gap: 10px;
+}
+.connected{
+  color: rgb(0, 154, 193);
+}
+.disconnected{
+  color: rgb(225, 67, 67);
+}
