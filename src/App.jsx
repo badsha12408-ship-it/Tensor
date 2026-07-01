@@ -85,7 +85,7 @@ export default function App(){
       audioRef.current.currentTime = 0;
     }
 
-    const audio = new Audio(`http://127.0.0.1:8000/speak?text=${encodeURIComponent(tv)}`)
+    const audio = new Audio(`https://tensorapi-1.onrender.com/speak?text=${encodeURIComponent(tv)}`)
     
     audioRef.current = audio;
 
