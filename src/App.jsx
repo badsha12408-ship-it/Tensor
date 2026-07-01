@@ -75,7 +75,9 @@ export default function App(){
  
 
    async function Speak(tv) {
-    if(!settingRef.current.tts) return
+    if(!settingRef.current.tts) {
+        return
+    }
     try{
 
     if(audioRef.current){
@@ -97,7 +99,8 @@ export default function App(){
     }
   
   }catch(error){
-   console.log(error);
+   console.log();
+   (error)
    
   }
    }
@@ -124,7 +127,7 @@ export default function App(){
       }))
 
     }catch(error){
-    console.log(error);
+    setText(error);
     }
   }
 
@@ -198,6 +201,11 @@ export default function App(){
     setListening(false)
     setText("Say")
     ReconigRef.current = null
+
+    if(restartListening.current){
+      restartListening.current = false;
+      StartVoiceCom()
+    }
     }
 
     recofnition.start()
@@ -217,7 +225,7 @@ export default function App(){
           </span>
             <span className='indicat'>{device.status? (<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m21 2l-1 1M3 2l1 1m17 13l-1-1M3 16l1-1m5 3h6m-5 3h4M12 3C8 3 5.952 4.95 6 8c.023 1.487.5 2.5 1.5 3.5S9 13 9 15h6c0-2 .5-2.5 1.5-3.5h0c1-1 1.477-2.013 1.5-3.5c.048-3.05-2-5-6-5" />
+	<path fill="none" stroke="rgb(255, 187, 0)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m21 2l-1 1M3 2l1 1m17 13l-1-1M3 16l1-1m5 3h6m-5 3h4M12 3C8 3 5.952 4.95 6 8c.023 1.487.5 2.5 1.5 3.5S9 13 9 15h6c0-2 .5-2.5 1.5-3.5h0c1-1 1.477-2.013 1.5-3.5c.048-3.05-2-5-6-5" />
 </svg>):(<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
 	<path fill="currentColor" d="M10.799 20.691q-.51-.462-.607-1.152h3.616q-.096.69-.607 1.152T12 21.154t-1.201-.463m5.805-6.63L7.427 4.859q.987-.912 2.116-1.385T12 3q2.721 0 4.61 1.89T18.5 9.5q0 1.506-.538 2.605t-1.358 1.956m3.558 6.37l-.714.713L13.304 15H8.558q-1.417-.929-2.238-2.356T5.5 9.5q0-.52.091-1.08q.092-.562.236-.897l-3.158-3.17l.708-.707zm-4.627-3.662v1H8.5v-1z" />
@@ -257,13 +265,13 @@ export default function App(){
 	</g>
 </svg>
 )}</button></div>
-      <button className='actionBtn' onClick={async()=>{
+      <button className='btn actionBtn1' onClick={async()=>{
         const cmnd = device.status === 1?"off" : "on"
         await LEDContr(cmnd)
       }}>
         {device.status === 1? "Turn off": "Turn on"}
       </button>
-      <button className='actionBtn' onClick={StartVoiceCom}>
+      <button className='btn actionBtn2' onClick={StartVoiceCom}>
       {listening? "" : text}
 
       {listening && <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">

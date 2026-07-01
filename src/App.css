@@ -15,9 +15,9 @@
   justify-content: center;
   gap: 10px;
 }
-.actionBtn{
+.btn{
   padding: 16px 20px;
-  background: rgb(46, 62, 131);
+  background: rgb(18, 18, 18);
   border: none;
   outline: none;
   border-radius: 5px;
@@ -28,10 +28,12 @@
   justify-content: center;
   gap: 5px;
 }
+.actionBtn2{
+  background: rgb(56, 57, 59);
+}
 .Status{
   font-size: .9rem;
   color: aliceblue;
-
 }
 .dN{
   color: rgb(204, 204, 204);
