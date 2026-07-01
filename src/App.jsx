@@ -89,14 +89,18 @@ export default function App(){
     
     audioRef.current = audio;
 
-    await audio.play()
+    audio.oncanplay = () => console.log("Can play");
+    
+    
+    audio.onplay = () => console.log("Playing..");
+    
+    audio.onended = () => console.log("Ended");
 
-    audio.onended = () => {
-      if(restartListening.current){
-        restartListening.current = false;
-        StartVoiceCom()
-      }
-    }
+    audio.onerror = (e) => console.log("Audio error", e);
+    
+    
+
+        await audio.play()
   
   }catch(error){
    console.log();
