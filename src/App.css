@@ -87,8 +87,25 @@
   gap: 10px;
 }
 .connected{
-  color: rgb(0, 154, 193);
+  color: rgb(19, 90, 255);
 }
 .disconnected{
   color: rgb(225, 67, 67);
+}
+
+.inT{
+  width: 100%;
+  font-size: large;
+}
+
+input{
+  padding: 5px;
+  width: 100%;
+  font-size: large;
+}
+#select{
+  padding: 5px;
+  width: 100%;
+  font-size: inherit;
+  outline: none;
 }

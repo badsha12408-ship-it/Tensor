@@ -1,4 +1,4 @@
-import { useRef,useEffect, useState } from 'react'
+import { useRef , useEffect , useState } from 'react'
 import './App.css'
 
 export default function App(){
@@ -10,10 +10,18 @@ export default function App(){
   const [setting, setSetting] = useState(true)
   const restartListening = useRef(false);
   const voiceEnabled = useRef(true)
+  // const [delay, setDelay] = useState("1m");
+  // const timerRef = useRef(null)
+  // const [schedule , setSchedule] = useState({
+  //   time:"",
+  //   action:"on",
+  // })
   const settingRef = useRef({
     tts: true,
     voice:true
   });
+
+
   const [device, setDevice] = useState({
     pin:2,
     status:0,
@@ -87,24 +95,12 @@ export default function App(){
 
     const audio = new Audio(`https://tensorapi-1.onrender.com/speak?text=${encodeURIComponent(tv)}`)
     
-    audioRef.current = audio;
-
-    audio.oncanplay = () => console.log("Can play");
-    
-    
-    audio.onplay = () => console.log("Playing..");
-    
-    audio.onended = () => console.log("Ended");
-
-    audio.onerror = (e) => console.log("Audio error", e);
-    
-    
+    audioRef.current = audio;    
 
         await audio.play()
   
   }catch(error){
-   console.log();
-   (error)
+   setText(error)
    
   }
    }
@@ -124,7 +120,7 @@ export default function App(){
           password: device.password
         })
       })
-      if(!SerVRes.ok) throw new Error("Error")
+      if(!SerVRes.ok) throw new Error("Error");
       setDevice(prev =>({
       ...prev,
       status: Command === "on" ? 1 : 0
@@ -300,6 +296,7 @@ export default function App(){
 
       </button>
       </div>
+      
     </div>
   );
 
